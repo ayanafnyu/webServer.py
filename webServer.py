@@ -20,7 +20,7 @@ def webServer(port=13331):
     
     print('Ready to serve...')
     connectionSocket, addr = serverSocket.accept()
-    print(f'Connection from {addr} has been established')#Fill in start -are you accepting connections?     #Fill in end
+    #Fill in start -are you accepting connections?     #Fill in end
     
     try:
       message = connectionSocket.recv(1024).decode() #Fill in start -a client is sending you a message   #Fill in end 
@@ -66,7 +66,7 @@ def webServer(port=13331):
       errorResponse += b"Content-Type: text/html; charset=UTF-8\r\n"
       errorResponse += b"\r\n"
       errorResponse += b"<html><body><h1>404 Not Found</h1></body></html>"
-      connectionSocket.send(b"HTTP/1.1 404 Not Found\r\n\r\n")
+      connectionSocket.send(errorResponse)
       connectionSocket.close()
       #Fill in end
 
